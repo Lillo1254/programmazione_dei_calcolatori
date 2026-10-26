@@ -317,4 +317,71 @@ print(riga_pari)
 
 
 # %%
-""" ciao """ 
+n, m = 8,8
+
+riga_pari = "#_"*(m//2)
+
+riga_dispari = riga_pari+"o" if m%2 == 0 else "_#"
+
+while n > 0:
+    if n%2 == 0:
+        print(riga_pari)
+    else:
+        print(riga_dispari)
+    n = n-1
+
+
+
+# %%
+n, m = 8, 8
+
+control_cicle = 0
+while control_cicle < n:
+    control_cicle_2 = 0
+    riga = ""
+    
+    while control_cicle_2 < m:
+
+        if (control_cicle + control_cicle_2) % 2 == 0:
+            riga += "#"
+        else:
+            riga += "_"
+        control_cicle_2 += 1
+        
+    print(riga)
+    control_cicle += 1
+# %%
+n = 8
+m = 8
+
+control_var = 0
+
+while control_var < n:
+    control_var_2 = 0
+    riga = ""
+
+    while control_var_2 < m:
+        if (control_var + control_var_2) % 2 == 0:
+            riga += "#"
+        else:
+            riga += "_"
+        control_var_2 += 1 
+        
+    print(riga)
+    control_var += 1 
+# %%
+altezza= 13
+larghezza= 15
+
+riga_pari = "# _ "*(larghezza//2)
+riga_dispari="_ # "*(larghezza//2)
+
+control_var = 0
+
+while control_var < altezza:
+    if control_var%2 == 0:
+        print(riga_pari)
+    else:
+        print(riga_dispari)
+    control_var += 1
+# %%

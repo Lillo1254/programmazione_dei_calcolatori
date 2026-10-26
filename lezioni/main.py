@@ -235,10 +235,39 @@ def int_to_bin(n, stampa=False):
         
 
 
-N = 42
+N = 33
 
 int_to_bin(N)
 int_to_bin(N, True)
 int_to_bin(N, "")
+
+# %%
+
+def int_to_bin(n, stampa=False):
+
+    n_bin = ""
+# sia t la lunghezza della rappresentazione binaria di n
+    t = 0    
+    while n> 0:
+        b= str(n&1)
+        n_bin = b+n_bin
+        t += 1
+        n = n>>1
+    print(f"La lunghezza/costo è {t} cicli.")
+    if stampa:
+        print(n_bin)
+        return None
+    elif stampa == "" or stampa == 0:
+        print("La funzione non stampa nulla perché il parametro 'stampa' é impostato su un valore false.")
+        
+    else:
+        print("Il parametro 'stampa' non è un booleano, quindi la funzione non stampa nulla.")
+        
+
+
+N = 31111
+
+int_to_bin(N)
+int_to_bin(N, True)
 
 # %%

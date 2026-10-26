@@ -1,12 +1,12 @@
 a= 10
 print(a)
 
-print(a>>1)
+print(a >> 1)
 
 n= 15
-print(n>>1)
-print(n&1)
-print(72&1)
+print(n >> 1)
+print(n & 1)
+print(72 & 1)
 print(f"{a:b}")
 a = a>>1
 print(a)
@@ -240,5 +240,51 @@ N = 42
 int_to_bin(N)
 int_to_bin(N, True)
 int_to_bin(N, "")
+
+# %%
+N = 42
+
+print(bin(N)[2:])
+# %%
+
+def int_to_bin(n, stampa=False):
+
+    t = 0
+    n_bin=""
+    while n> 0:
+        b=str(n&1)
+        n_bin = b+n_bin
+        t +=1
+        n = n>>1
+
+    if stampa:
+        print(n_bin)
+    else:
+        return n_bin, t
+
+N = 42
+
+int_to_bin(N, True)
+int_to_bin(N)
+
+# %% esercizio scacchiera
+
+n, m = 10, 7
+riga_pari = "#_"*(m//2)
+riga_dispari = "_#"*(m//2)
+
+for i in range(n):
+    if i%2 == 0:
+        print(riga_pari)
+    else:
+        print(riga_dispari)
+# %%
+n, m = 10, 7
+riga_pari= "#_"*(m//2)
+
+riga_dispari= riga_pari+"#" if m%2 == 0 else "_#"
+
+print(riga_pari)
+
 
 # %%

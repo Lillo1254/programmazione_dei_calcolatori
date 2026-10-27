@@ -444,3 +444,140 @@ griglia(10)
 griglia(5,7)
 
 # %%
+a = input("Premi un tasto") #il programma viene interrotto e attende un input da parte dell'utente si puo inserire un parametro stringa che indica il messaggio da mostrare all'utente
+
+print(a)
+# %%
+n = input("numero di righe")
+m = input("numero di colonne")
+
+griglia(int(n),int(m))
+# %%
+n = int(input("numero di righe"))
+m = int(input("numero di colonne"))
+
+griglia(n,m)
+# %%
+f = float("3.14")
+print(f, type(f))
+# %%
+a = "0123456789"
+
+# calcolo lunghezza della stringa
+print(len(a))
+print("====================")
+# stampa a seconda dell'indice
+print(a[0])
+print(a[1])
+print(a[2])
+print(a[3])
+print(a[4])
+print(a[5])
+print(a[6])
+print(a[7])
+print(a[8])
+print(a[9])
+print("====================")
+# slice
+print(a[0:5])
+print(a[5:10])
+print("====================")
+# %%
+# indicizzazione con stampa in diagonale
+print(a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8],a[9])
+print(a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8],a[9])
+print(a[2],a[3],a[4],a[5],a[6],a[7],a[8],a[9])
+print(a[3],a[4],a[5],a[6],a[7],a[8],a[9])
+print(a[4],a[5],a[6],a[7],a[8],a[9])
+print(a[5],a[6],a[7],a[8],a[9])
+print(a[6],a[7],a[8],a[9])
+print(a[7],a[8],a[9])
+print(a[8],a[9])
+print(a[9])
+# %% stampa in diagonale
+a = "0123456789"
+
+n = len(a)
+
+i = 0
+while i < n:
+    print(" "*i+a[i])
+    i += 1
+    
+# %% stampa in diagonale con ciclo for
+a = "0123456789"
+
+n = len(a)
+print(type(n))
+
+for i in range(n):
+    print(" "*i+a[i])
+
+# %% stampa in diagonale con ciclo for senza len()
+a = "0123456789"
+
+i=0
+for c in a:
+    print(" "*i+c)
+    i += 1
+
+# %% stampa in diagonale con ciclo for con enumerate()
+a = "0123456789"
+
+# enumerate() restituisce un oggetto di tipo enumerate che contiene la coppia (indice, valore)
+print(type(enumerate(a)))
+for i,c in enumerate(a):
+    print(" "*i+c)
+
+# %% stmapare l'ultimo carattere
+a = "0123456789"
+# l'utilizzo di indici negativi si utilizza per accedere agli indici partendo dalla fine
+print(a[-1])
+
+# %%
+#funzione se stringa palindroma restituisce true altrimenti false
+def stringa(a):
+    if a == a[::-1]: #[::-1] restituisce la stringa invertita
+        return True
+    else:
+        return False
+
+print(stringa("yamamay"))
+print(stringa("yamamay1"))
+# %%
+#funzione se stringa palindroma restituisce true altrimenti false con ciclo
+
+def stringa(a):
+    for i in range(len(a)):
+        if a[i] != a[-(i+1)]:
+            return False
+    return True
+
+print(stringa("yamamay"))
+print(stringa("yamamay1"))
+
+# %%
+#funzione se stringa palindroma restituisce true altrimenti false con ciclo ed enumerate()
+
+def stringa(a):
+    for i,c in enumerate(a):
+        if a[i] != a[-(i+1)]:
+            return False
+    return True
+
+print(stringa("yamamay"))
+print(stringa("yamamay1"))
+# %%
+
+def stringa(a):
+    for c in a:
+
+        if c == a[-1]:
+            return True
+        else:
+            return False
+
+print(stringa("yamamay"))
+print(stringa("yamamay1"))
+
+# %%

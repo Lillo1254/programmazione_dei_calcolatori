@@ -385,3 +385,62 @@ while control_var < altezza:
         print(riga_dispari)
     control_var += 1
 # %%
+
+def griglia(n,m):
+    control_var = 0
+    while control_var < n:
+        control_var_2 = 0
+        riga = ""
+        while control_var_2 < m:
+            if (control_var + control_var_2) % 2 == 0:
+                riga += "#"
+            else:
+                riga += "_"
+            control_var_2 += 1
+        print(riga)
+        control_var += 1
+
+griglia(13, 15)
+
+# %% generare funzione
+# il parametro m non deve essere passato obbligatoriamente all'invocazione della funzione ma se manca deve stampare una griglia quadrata
+def griglia(n,m=None):
+    if m is None:
+        m = n
+    riga_pari = "# _ "*(m//2)
+    riga_dispari="_ # "*(m//2)
+
+    control_var = 0
+
+    while control_var < n:
+        if control_var%2 == 0:
+            print(riga_pari)
+        else:
+            print(riga_dispari)
+        control_var += 1
+
+griglia(13)
+# %%
+def griglia(n,m=None):
+    if m is None:
+        m = n
+    riga_pari = "# _ "*(m//2)
+    riga_dispari="_ # "*(m//2)
+    if m == 1:
+        riga_pari = "#"
+        riga_dispari = "_"
+    control_var = 0
+
+    while control_var < n:
+        if control_var%2 == 0:
+            print(riga_pari)
+        else:
+            print(riga_dispari)
+        control_var += 1
+
+griglia(2,2)
+griglia(2,1)
+griglia(10)
+griglia(5,7)
+
+# %%

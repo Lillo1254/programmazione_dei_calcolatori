@@ -531,7 +531,7 @@ for i,c in enumerate(a):
 
 # %% stmapare l'ultimo carattere
 a = "0123456789"
-# l'utilizzo di indici negativi si utilizza per accedere agli indici partendo dalla fine
+# l'utilizzo di indici negativi si utilizza per accedere agli indici partendo dalla fine in python l'ultimo indice letto da destra verso sinistra è -1 poiche -0 matematicamente è uguale a 0
 print(a[-1])
 
 # %%
@@ -557,7 +557,7 @@ print(stringa("yamamay"))
 print(stringa("yamamay1"))
 
 # %%
-#funzione se stringa palindroma restituisce true altrimenti false con ciclo ed enumerate()
+# funzione se stringa palindroma restituisce true altrimenti false con ciclo ed enumerate()
 
 def stringa(a):
     for i,c in enumerate(a):
@@ -568,16 +568,26 @@ def stringa(a):
 print(stringa("yamamay"))
 print(stringa("yamamay1"))
 # %%
+def palindromo(a):
+    if a == a[::-1]:
+        return True
+    else:
+        return False
 
-def stringa(a):
-    for c in a:
+def palindromo_2(a):
+    stringa_1 =""
+    stringa_2 =""
+    for i in range(len(a)):
+        stringa_1 += a[i]
+        stringa_2 += a[-(i+1)]
+    if stringa_1 == stringa_2:
+        return True
+    else:
+        return False
 
-        if c == a[-1]:
-            return True
-        else:
-            return False
+print(palindromo("yamamay"))
+print(palindromo("yamamay1"))
 
-print(stringa("yamamay"))
-print(stringa("yamamay1"))
-
+print(palindromo_2("yamamay"))
+print(palindromo_2("yamamay1"))
 # %%

@@ -551,7 +551,10 @@ def stringa(a):
     for i in range(len(a)):
         if a[i] != a[-(i+1)]:
             return False
-    return True
+            
+        else:
+            print(f"carettere {a[i]} uguale a {a[-(i+1)]}", True)
+            
 
 print(stringa("yamamay"))
 print(stringa("yamamay1"))
@@ -590,4 +593,95 @@ print(palindromo("yamamay1"))
 
 print(palindromo_2("yamamay"))
 print(palindromo_2("yamamay1"))
+# %%
+
+a = "kayak"
+
+n =len(a)
+i , j = 0, n-1
+
+while i  < j and a[i] == a[j]:
+    i += 1
+    j -= 1
+
+if a[i] == a[j]:
+    print("palindromo")
+else:
+    print("non palindormo")
+
+# %%
+def palindormo (a):
+    i, j = 0,-1
+    while i< len(a)//2 and a[i] == a[j]:
+        i += 1
+        j -= 1
+
+    if a[i] == a[j]:
+        return True
+    else:
+        return False
+
+print(palindormo("yamamay"))
+# %%
+
+a = "0123456789"
+
+b = a[2:8] #da l'indice 2 fino all'indice 7
+print(b)
+
+b = a[2:] #da l'indice 2 fino alla fine
+print(b)
+
+b = a[:8] #da l'inizio fino all'indice 7
+print(b)
+
+b = a[:] #da l'inizio fino alla fine
+print(b)
+
+b= a[2:8:2] #da l'indice 2 fino all'indice 7 con passo 2
+print(b)
+
+b= a[8:2:-2] #dall'indice 8 fino all'indice 2 con passo -2
+print(b)
+
+b= a[::2] #da l'inizio fino alla fine con passo 2
+print(b)
+
+b= a[::-1] #inverte la stringa dalla fine all'inizio
+print(b)
+
+
+# %%
+a ="kayak7"
+a[::-1] == a
+
+def palindromo2(a):
+    return a == a[::-1]
+
+print(palindromo2("kayak"))
+print(palindromo2("kayak7"))
+# algoritmo non efficenze poiche crea una copia della stringa allocando memoria tanto quanto la lunghezza della stringa stessa ed effettuando un confronto diretto pertanto viene utilizzata memoria e tempo
+
+
+# %%
+# le stringhe in python sono immutabili pertanto non possiamo modificarle direttamente
+
+a = "Programmazione dei calcolatori"
+# a[1] = "R" # TypeError: 'str' object does not support item assignment 
+
+b =""
+for c in a:
+    if c >= "a" and c <= "z": # caratteri minuscoli
+        k= ord(c)-ord("a")
+        
+        c= chr(ord("A")+k)
+        
+    b += c
+
+
+
+print(b)
+print(a.lower())
+print(a.upper())
+
 # %%

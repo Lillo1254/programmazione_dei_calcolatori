@@ -591,3 +591,13 @@ print(palindromo("yamamay1"))
 print(palindromo_2("yamamay"))
 print(palindromo_2("yamamay1"))
 # %%
+# calcolo il fattoriale di un numero passo per passo
+
+def fattoriale(n):
+    if n == 0:
+        return 1
+    else:
+        return n * fattoriale(n-1)
+
+print(fattoriale(5))
+# %%

@@ -685,3 +685,105 @@ print(a.lower())
 print(a.upper())
 
 # %%
+def pal(a):
+
+    n = len(a)
+    for i in range(n//2):
+        if a[i] != a[-1-i]:
+            return False
+    return True
+
+a = input("inserisci una stringa: ")
+
+p= pal(a)
+if p:
+    print("la stringa è palindroma")
+else:
+    print(f"la stringa non é palindroma - {a}- ")
+# %%
+def pal(a):
+
+    n = len(a)
+    for i in range(n//2):
+        if a[i] != a[-1-i]:
+            return 1
+    return -1
+
+a = input("inserisci una stringa: ")
+
+p= pal(a)
+if p<0:
+    print("la stringa è palindroma")
+else:
+    print(a)
+    n = len(a)
+    q= n-1-p
+    b= " "*p+"^"+" "*(q-p-1)+"^"
+    print(b)
+# %%
+
+# %%
+permessi = "warr"
+bm = 0
+bitarray = 0
+
+if "r" in permessi:
+    print("SI")
+else:
+    print("NO")
+
+if "r" in permessi:
+    bitarray = bitarray|1
+
+if "w" in permessi:
+    bitarray = bitarray|0b10
+
+print(bitarray)
+print(f"{bitarray: b}") #formattazione della stringa con f-string e specifica il formato binario - float, int, str, bool, list, dict, tuple, set, complex, bytes, bytearray, memoryview, range, frozenset
+print(f"{bitarray: 10.2f}")
+print(f"{bitarray:08b}") #
+
+if "x" in permessi:
+    bitarray = bitarray|0b100
+
+if "a" in permessi:
+    bitarray = bitarray|0b1000
+
+print(f"La sequenza è: {bitarray: 04b}")
+
+# %%
+def pal(a):
+    """
+    input: a una stringa
+    Output: -1 se la stringa è palindroma oppure (i,j) se il carattere in posizione i differisce dal suo simmetrico in posizione  j
+    """
+    i,j = 0,len(a)-1
+
+    while i < len(a)//2 and a[i] == a[j]:
+        i += 1
+        j -= 1
+
+    if a[i] == a[j]:
+        return -1
+    else:
+        return (i,j)
+
+
+print(pal("kayak"))
+print(pal("kayAk"))
+
+t = pal("kayAk")
+print(type(t)) # t è una tupla cioe un insieme di elementi separati da virgola e racchiusi tra parentesi tonde, le tuple sono immutabili e possono contenere elementi di tipo diverso accedendo alla tupla con l'indice
+print(t[:])
+print(int(t[0]), int(t[1])) # conversione dei valori della tupla in interi
+
+
+
+
+# %%
+t = (0,3.14,"stringa",True, (7,9,"stringa2"))
+for x in t:
+    print(x, type(x))
+# %%
+t = pal("kayAk")
+p, q = palindromo("kayAk") # spacchettamento della tupla in due variabili p e q, se la funzione restituisce una tupla di due elementi, p e q conterranno i valori della tupla restituita dalla funzione

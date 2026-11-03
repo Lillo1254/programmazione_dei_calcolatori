@@ -672,12 +672,12 @@ a = "Programmazione dei calcolatori"
 b =""
 for c in a:
     if c >= "a" and c <= "z": # caratteri minuscoli
-        k= ord(c)-ord("a")
+        k= ord(c)-ord("a") # converte il carattere in numero
         
-        c= chr(ord("A")+k)
+        c= chr(ord("A")+k) # la funzione chr() converte un numero in carattere
         
     b += c
-
+# quindi questa funzione converte le lettere in numeri ascii poi fa il confronto tra i numeri ascii e i corrispettivi numeri ascii delle lettere maiuscole
 
 
 print(b)

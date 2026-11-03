@@ -785,5 +785,102 @@ t = (0,3.14,"stringa",True, (7,9,"stringa2"))
 for x in t:
     print(x, type(x))
 # %%
+def pal(a):
+    """
+    input: a una stringa
+    Output: -1 se la stringa è palindroma oppure (i,j) se il carattere in posizione i differisce dal suo simmetrico in posizione  j
+    """
+    i,j = 0,len(a)-1
+
+    while i < len(a)//2 and a[i] == a[j]:
+        i += 1
+        j -= 1
+
+    if a[i] == a[j]:
+        return -1
+    else:
+        return (i,j)
+
 t = pal("kayAk")
-p, q = palindromo("kayAk") # spacchettamento della tupla in due variabili p e q, se la funzione restituisce una tupla di due elementi, p e q conterranno i valori della tupla restituita dalla funzione
+p, q = pal("kayAk") # spacchettamento della tupla in due variabili p e q, se la funzione restituisce una tupla di due elementi, p e q conterranno i valori della tupla restituita dalla funzione
+print(p,q)
+
+# %%
+#      J
+# |10,11,12,13|
+# |20,21,22,23| I
+# |30,31,32,33|
+
+i,j = 1,2
+n_cols = 4
+
+M = (10,11,12,13,20,21,22,23,30,31,32,33,34)
+
+# elemento i, j in M si trova in posizione j+posizione del primo elemento della riga i
+# j+posizione del primo elemento della iga i = j+i*n_cols
+
+# %%
+#funzioni
+
+Tupla_di_elementi = (1,2,3,4,5,6,7,8,9,10,11,12)
+n_cols = 4
+def estrai_riga(M, n_cols, r):
+    """
+    parametri: M una tabella memorizzata per righe;
+    n_cols numero colonne tabella
+    r numero intero
+    output: ritorna una tupla che contine la riga r di M
+    """
+    # M viene calcolato con lo slicing tramite gli indici della riga*l colonne
+    return M[r*n_cols:(r+1)*n_cols]
+# in questo caso specifico M sara sottoposto a uno slicing dall'indice M[2*4] fino all'indice M[3*4] escluso, quindi M[8:12] che corrisponde alla terza riga della tabella memorizzata per righe pertanto sarà M[8:12] dall'indice 8 all'indice 12 della tupla di entrata
+print(estrai_riga(Tupla_di_elementi, n_cols, 2))
+
+def estrai_colonna(M, n_cols, r):
+    """
+    parametri: M una tabella memorizzata per righe;
+    n_cols numero colonne tabella
+    r numero intero
+    output: ritorna una tupla che contine la colonna r di M
+    """
+    # per estrarre una colonna si procede sempre con uno slicing ma con passo uguale al numero di colonne della tabella in modo da mantenere gli stessi spazi tra gli elementi della colonna 
+    # M[c], ;[c+n_cols],M[c+2*n_cols]...
+    return M[r::n_cols]
+
+# qui utilizziamo la
+print(estrai_colonna(Tupla_di_elementi, n_cols, 3))
+# %%
+t = (10,20,30,0)
+t2 = ( "casa", "barca", "aba")
+print(sum(t)) # somma gli elementi della tupla
+print(max(t)) # restituisce il valore massimo tra elementi della tupla
+print(min(t)) # restituisce il valore minimo tra elementi della tupla
+print(len(t)) # lunghezza della tupla
+print(t+t2) # concatenazione di tuple
+print(max(t2)) # restituisce il massimo elemento della tupla secondo l'ordinamento lessicografico
+print(min(t2)) # restituisce il minimo elemento della tupla secondo l'ordinamento lessicografico
+# print(sum(t2)) TypeError: unsupported operand type(s) for +: 'int' and 'str' - non è possibile sommare stringhe e numeri
+# %%
+print(max((10,8), (11,0))) # restituisce il massimo tra due tuple confrontando prima il primo elemento e poi il secondo elemento se i primi elementi sono uguali
+print(max((10,9,8), (10,8,0)))
+print(max((10,8,"tra"), (10,8,"casa")))
+#gli elementi della tupla devono essere confrontabili tra loro altrimenti si ottiene un errore TypeError: '>' not supported between instances of 'str' and 'int'
+print(max((10,8,"casa"), (10,8,"d")))
+# %%
+help(max) # restituisce la documentazione della funzione max
+t = ("zero","uno","due","tre","quattro","ottanta")
+print(min(t))
+print(max(t,key=len)) # restituisce l'elemento della tupla con la lunghezza massima
+print(min(t,key=len)) # restituisce l'elemento della tupla con la lunghezza minima
+# %%
+t = ("zero","uno","due","tre","quattro","ottanta")
+
+def F(e):
+    return (len(e),(e))
+
+print(F("casa"))
+print(min(t,key=F))
+# %%
+#funzione lambda utilizzata per creare funzioni anonime, cioè funzioni senza nome, che possono essere utilizzate come argomenti di altre funzioni o come valori di ritorno di altre funzioni. Le funzioni lambda sono utili quando si vuole creare una funzione semplice e veloce senza dover definire una funzione completa con def. o inserire una funzione in una variabile. La sintassi di una funzione lambda è la seguente: lambda arg1, arg2, ... : expression. dove arg1, arg2, ... sono gli argomenti della funzione e expression è l'espressione che viene valutata e restituita come valore della funzione. Le funzioni lambda possono essere utilizzate in combinazione con altre funzioni come map(), filter() e reduce() per creare operazioni complesse su liste e altri oggetti iterabili
+t = ("zero","uno","due","tre","quattro","ottanta")
+print((lambda x: x+1)(7))

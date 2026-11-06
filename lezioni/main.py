@@ -884,3 +884,64 @@ print(min(t,key=F))
 #funzione lambda utilizzata per creare funzioni anonime, cioè funzioni senza nome, che possono essere utilizzate come argomenti di altre funzioni o come valori di ritorno di altre funzioni. Le funzioni lambda sono utili quando si vuole creare una funzione semplice e veloce senza dover definire una funzione completa con def. o inserire una funzione in una variabile. La sintassi di una funzione lambda è la seguente: lambda arg1, arg2, ... : expression. dove arg1, arg2, ... sono gli argomenti della funzione e expression è l'espressione che viene valutata e restituita come valore della funzione. Le funzioni lambda possono essere utilizzate in combinazione con altre funzioni come map(), filter() e reduce() per creare operazioni complesse su liste e altri oggetti iterabili
 t = ("zero","uno","due","tre","quattro","ottanta")
 print((lambda x: x+1)(7))
+# %% Lista
+# struttura dati lineare come le tuple di elementi ordinati accesso tramite indicie e possibilità di essere disomogenea a differenza delle tuple le liste sono mutabili quindi possiamo modificare cancellare o aggiungere elementi all'interno della lista
+
+a =[] # lista vuota
+a = [2,3,"python",(1,"9"),["y",9]]
+
+print(a)
+
+a[1]=3.14 # sostituito elemento indice 1
+
+print(a)
+
+a = [0,1,2,3,4,5,6,7,8,9]
+
+
+print(a[1:3])
+
+a[1:3] = ["uno","due"]# slicing per modificare elementi tanti quanti sono quelli selezionati
+print(a)
+a[1:3] = ["add-1","add-2","add-3"] # slicing per aggiungere elemente oltre quelli presenti selezionanto l'indice e aggiungere piu elementi del dovuto
+print(a)
+
+n = len(a)
+a[n-1:] = a[n-1],10 # inserimento di un elemento alla fine della lista
+print(a)
+
+a.append(11) # il metodo append inserisce in una lista un elemento alla fine "appende" l'elemento alla fine Per metodo si definisce una speciale funzine derivata dal tipo di dato stesso ogni tipologia di dato ha metodi unici o uguali agli altri
+print(a)
+
+# scrivere una funzione che prende in input una tabella con righe e colonne e poi prende in input l'indice di una colonna. La funzione deve modificare tutti gli elementi della colonna selezionata cambiando il valore in 0
+
+M=[1,2,3,4,5,6,7,8,9,10,11,12]
+#   1,2,3
+#   4,5,6
+#   7,8,9
+#   10,11,12
+
+n = len(M)
+n_cols= 3
+print(n)
+
+T = list(range(0,5)) + list(range(10,15))
+print(T)
+
+
+
+
+
+def set_col_zero(M, n_cols, indice):
+
+    for i in range(len(M)//n_cols):
+        print(f"i={i}, indice={indice}, n_cols={n_cols}, i*n_cols+indice={i*n_cols+indice}")
+        M[i*n_cols+indice] = 0
+
+set_col_zero(M, n_cols, 1)
+print(M)
+
+j = 2
+n_rows = len(M)//n_cols
+M[j::n_cols] = [0]*n_rows
+print(M)

@@ -945,3 +945,72 @@ j = 2
 n_rows = len(M)//n_cols
 M[j::n_cols] = [0]*n_rows
 print(M)
+# %%
+# def calcola_massimi(T,n_n_cols):
+    #
+    # input: 
+    # T tabella numerica memorizzata in una lista con gli elementi disposti per righe;
+    # n_cols: numero di colonne di T
+    # ritorna:
+    # una lista contenente i massimi di ciascuna colonna
+    # una lista contenente i massimi di ciascuna riga
+    # """
+    # sia n = len(T), n_rows = numero di righe, 
+    
+
+n_cols= 4
+T = [ 4,2,9,1,5,3,8,0,2,1,3,6]
+
+max_colonne, max_righe = [], []
+for j in range(n_cols):
+    print(T[j::n_cols]) # slicing per estrarre la colonna j
+    
+    max_colonne.append( max(T[j::n_cols])) # calcola il massimo della colonna j e lo aggiunge alla lista max_colonne
+
+        # Theta(n_rows) per slicing
+        # Teheta(n_rows) per max
+        # Theta(1) per append
+        # il tutto per n_cols => Theta(n)
+
+print("")
+
+print(max_colonne)
+
+for i in range (len(T)//n_cols):
+    print(T[i*n_cols:(i+1)*n_cols]) # slicing per estrarre la riga i
+    max_righe.append(max(T[i*n_cols:(i+1)*n_cols])) # calcola il massimo della riga i e lo aggiunge alla lista max_righe
+
+    # Theta(n)
+    
+print("")
+print(max_righe)
+
+def calcolo_massimi(T, n_cols):
+    max_colonne, max_righe = [], []
+    for j in range(n_cols):
+        max_colonne.append(max(T[j::n_cols]))
+    for i in range(len(T)//n_cols):
+        max_righe.append(max(T[i*n_cols:(i+1)*n_cols]))
+    return max_colonne, max_righe
+
+print(calcolo_massimi(T, n_cols))
+
+# %%
+a = [4,2,9,1,5,3,8,0,2,1,3,6]
+k = 2
+# cercare k in a
+print(k in a)
+
+for i, x in enumerate(a):
+    if x == k:
+        print(f"trovato in {i}")
+        break
+# %%
+T = [4,2,9,1,5,3,8,0,2,1,3,6]
+
+print( (T[i] for i in range(2,7))) #generatore di sequenza
+
+a = [T[i] for i in range(2,7)] #list comprehension
+print(a)
+print("ciao")
+# %%

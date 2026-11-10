@@ -1102,3 +1102,7 @@ def somma_tre(a,b,c):
 def divisione_tres(a,b,c):
     return a/b/c
 
+# scrivere una funzione che restituisce una scritta
+
+def scrittura():
+    return "ciao"

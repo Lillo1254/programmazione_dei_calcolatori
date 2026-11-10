@@ -1014,3 +1014,91 @@ a = [T[i] for i in range(2,7)] #list comprehension
 print(a)
 print("ciao")
 # %%
+a = [4,2,9,1,5,3,8,0,2,1,3,6]
+
+a.insert(3, 99) # inserisce l'elemento 99 in posizione 3 spostando gli elementi successivi di una posizione a destra
+print(a)
+
+a[2:] = a[1:] # sposta gli elementi da 1 in poi di una posizione a destra
+a[1] = 99 # inserisce l'elemento 99 in posizione 1
+print(a)
+
+i = len(a)-1 # indice dell'ultimo elemento della lista
+a.append(None) # inserisce l'elemento 99 in fondo alla lista
+
+while i >= 1:
+    a[i+1] = a[i]
+    i-=1
+a[1]= 99
+print(a)
+# %%
+a = [0,1,2,3,4,5,6,7,8,9]
+a[4:] = a[1:] # inserire elementi a blocco spostando gli elementi successivi di una posizione a destra
+a[1:4] = ["a","b","c"]  # inserire elementi a blocco in una lista spostando gli elementi successivi di una posizione a destra
+print(a)
+# %%
+a = [0,1,2,3,4,5,6,7,8,9]
+a[1:]= a[4:]
+print(a)
+# %%
+a = [0,1,2,3,4,5,6,7,8,9]
+a.remove(6) # metodo che rimuove un elemento tramite indice
+print(a)
+
+del(a[6]) #funzione python built-in per la rimozione di un elemento tramite indice
+print(a)
+# %%
+a = "Programmazione dei Calcolatori"
+
+L = []
+
+for c in a:
+    if c >= "a" and c <= "z":
+        k = ord(c) - ord("a")
+        c = chr(ord("A")+k)
+        L.append(c)
+
+b = "".join(L)
+print(b)
+# le stringe hanno diversi metodi accessibili individuabili e utilizzabili attraverso il . (dot)
+
+# %%
+# funzione per generare la somma
+
+def somma(a,b):
+    return a+b
+
+def sottrazione(a,b):
+    return a+b
+
+def molti(a,b):
+    moltiplicazione = a*b
+
+def div(a,b):
+    divisione = a/b
+    return
+
+def resto_zero(a,b):
+    return a//b
+
+def resto_1(a,b):
+    if(a%b == 0):
+        return "resto 0"
+    else:
+        return "resto 1"
+
+print(resto_1(10,3))
+
+def ciao(string):
+    print(f"ciao {string}")
+
+# scrivere funzione che fa la somma tra 3 numeri
+
+def somma_tre(a,b,c):
+    return a+b+c
+
+# scrivere funzione che divide il primo numero per il secondo e successivamente il secondo per il terzo
+
+def divisione_tres(a,b,c):
+    return a/b/c
+

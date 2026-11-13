@@ -1102,3 +1102,59 @@ def somma_tre(a,b,c):
 def divisione_tres(a,b,c):
     return a/b/c
 
+# %%
+# funzione ricorsiva per conteggio elementi di una lista contenente una lista
+
+def count_list(lst):
+    count = 0
+    for i in lst:
+        if isinstance(i, list):
+            count += count_list(i)
+        else:
+            count += 1
+    return count
+
+L = [1, 2, [3, 4, [5, 6]], 7, 8, [9, [10, 11], 12], 13]
+print(count_list(L))
+
+# %%
+
+L0 = [0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+
+L1 = L0
+
+L1[0] = "ciucci"
+
+print(L0[0])
+# per fare una copia di una lista in python il modo piu pratico è effettuare uno slicing su tutta la lista
+Lalias =L0[:]
+Lalias[0] = "cane"
+
+print(L0)
+print(Lalias)
+print(id(L0), id(Lalias)) 
+
+# %%
+import copy
+
+# ritornare una copia profonda della lista L ovvero copia di tutte le sue sottoliste
+
+L0 = [0,1,2,3,[1,2,3,4],5,6,7,8,9,10]
+Lcopy = copy.deepcopy(L0)
+Lcopy[4][0] = "cane"
+
+print(L0)
+print(Lcopy)
+print(id(L0), id(Lcopy))
+# %%
+
+def deep_copy(a):
+    return copy.deepcopy(a)
+
+L0 = [0,1,2,3,[1,2,3,4],5,6,7,8,9,10]
+Lcopy = deep_copy(L0)
+Lcopy[4][0] = "cane"
+print(L0)
+print(Lcopy)
+print(id(L0), id(Lcopy))
+

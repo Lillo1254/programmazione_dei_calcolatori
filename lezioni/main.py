@@ -1102,6 +1102,7 @@ def somma_tre(a,b,c):
 def divisione_tres(a,b,c):
     return a/b/c
 
+# scrivere una funzione che restituisce una scritta
 # %%
 # funzione ricorsiva per conteggio elementi di una lista contenente una lista
 
@@ -1158,3 +1159,6 @@ print(L0)
 print(Lcopy)
 print(id(L0), id(Lcopy))
 
+
+def scrittura():
+    return "ciao"

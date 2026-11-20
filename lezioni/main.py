@@ -1159,6 +1159,168 @@ print(L0)
 print(Lcopy)
 print(id(L0), id(Lcopy))
 
+# %%
+# lista contenente sottoliste
+L0 = [0,[10,22,31],[11,[10,21,33],44],5,6,7,8,9,10]
 
-def scrittura():
-    return "ciao"
+
+def search(L,k, liv=0):
+    temp_min = -1
+    for x in L:
+        if x == k:
+            return liv
+        if type(x) == list:
+            cur_min = search(x,k, liv+1)
+            if temp_min < 0:
+                temp_min = cur_min
+            elif temp_min >= 0 and cur_min >= 0:
+                temp_min = min(temp_min, cur_min)
+    return temp_min
+
+print(search(L0, 10))
+
+def research(L, k, liv=0):
+    count_liv = -1
+    count_k = 0
+    for x in L:
+        if x == k:
+            count_k += 1
+            count_liv = liv
+            
+        if type(x) == list:
+            sub_k, sub_liv = research(x, k, liv + 1)
+            count_k += sub_k
+            if sub_liv != -1:
+                count_liv = sub_liv
+                
+    return count_k, count_liv
+
+research(L0, 10)
+
+# %%
+def research(L, k, liv=0):
+    livelli = []
+    count_k = 0
+    
+    for x in L:
+        if x == k:
+            count_k += 1
+            livelli.append(liv)
+            
+        if type(x) == list:
+            sub_k, sub_livelli = research(x, k, liv + 1)
+            count_k += sub_k
+            livelli.extend(sub_livelli)
+                
+    return count_k, livelli
+
+# il metodo .append inserisce una nuova lista nella lista selezionata mentre il metodo extend inserisce gli elementi senza creare una lista interna entrambi aggiungono in coda ultima posizione rispetto alla lista stessa all'indice -1
+
+L0 = [0, [10, 22, 31], [11, [10, 21, 33], 44], 5, 6, 7, 8, 9, 10]
+totale, dove = research(L0, 10)
+print(f"Trovati {totale} elementi ai livelli: {dove}")
+
+# %%
+# ricerca lineare
+def linsearch(L,k):
+    for x, i in enumerate(L):
+        if x == k:
+            return i
+    return -1
+
+linsearch([0,1,2,3,4], 2)
+
+# %%
+# ricerca binaria
+def ricerca_binaria(lista_ordinata, numero_da_cercare):
+    """
+    Input: lista_ordinata (lista di numeri in ordine crescente), 
+    numero_da_cercare (il valore da trovare).
+    Output: ritorna la posizione dell'elemento se presente, -1 se non presente.
+    """
+    lunghezza = len(lista_ordinata)
+    inizio = 0
+    fine = lunghezza
+    
+    while inizio < fine:
+        centro = (inizio + fine) // 2
+        
+        if lista_ordinata[centro] < numero_da_cercare:
+            inizio = centro + 1
+        else:
+            fine = centro
+            
+    if inizio < lunghezza and lista_ordinata[inizio] == numero_da_cercare:
+        posizione = inizio
+        return posizione
+    else:
+        return -1
+
+L1 = [0,1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print(ricerca_binaria(L1, 4)) 
+print(ricerca_binaria(L1, 9))  
+print(ricerca_binaria(L1, 3))
+# %%
+L = [3,1,5,7,2,3,4,5,1,0,3]
+
+n=len(L)
+
+for i in range(0, n-1):
+    if L[i] > L[i+1]:
+        L[i], L[i+1]=L[i+1],L[i]
+
+print(L)
+# %% algoritmo Bubble sort
+# versione 1
+L = [3,1,5,7,2,3,4,5,1,0,3]
+
+n=len(L)
+for c in range(n-1):
+    for i in range(0, n-1):
+        if L[i] > L[i+1]:
+            L[i], L[i+1]=L[i+1],L[i]
+        print(f"numero di iterazioni {i}")
+print(L)
+# %% algoritmo Bubble sort
+# versione 2
+L = [3,1,5,7,2,3,4,5,1,0,3]
+
+n=len(L)
+for c in range(n-1):
+    for i in range(0, n-1-c):
+        if L[i] > L[i+1]:
+            L[i], L[i+1]=L[i+1],L[i]
+        # print(f"numero di iterazioni {i}")
+print(L)
+# %% algoritmo Bubble sort
+# versione 3
+L = [10,0,1,2,3,4,5,6,7,8,9]
+
+n=len(L)
+for c in range(n-1):
+    for i in range(0, n-1-c):
+        if L[i] > L[i+1]:
+            L[i], L[i+1]=L[i+1],L[i]
+        # print(f"numero di iterazioni {i}")
+print(L)
+# %%
+def bubble_sort(L, key):
+    """
+    input: L una lista di elementi confrontabili con < >
+    Ordina gli elementi di L dla piu piccolo al piu grande
+    """
+    n = len(L)
+    ordinata = False
+
+    while not ordinata:
+        ordinata = True
+        for i in range(0, n-1):
+            if key(L[i]) > key(L[i+1]):
+                ordinata = False
+                L[i], L[i+1] = L[i+1], L[i] 
+
+a = ["zero","uno", "due", "tre", "quattro", "cinque", "sei"]
+
+bubble_sort(a, len)
+print(a)

@@ -1304,7 +1304,8 @@ for c in range(n-1):
             L[i], L[i+1]=L[i+1],L[i]
         # print(f"numero di iterazioni {i}")
 print(L)
-# %%
+# %% algoritmo Bubble sort
+# versione 3
 def bubble_sort(L, key):
     """
     input: L una lista di elementi confrontabili con < >
